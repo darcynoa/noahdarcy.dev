@@ -37,5 +37,6 @@
   --color-green: #a7b572;
   --color-blue: #91b2b4;
   --color-purple: #342d59;
-  --font-main: "PPEiko", sans-serif;
+  --font-main: "PPEiko", serif;
+  --font-body: var(--font-bricolage-grotesque), sans-serif;
 }
