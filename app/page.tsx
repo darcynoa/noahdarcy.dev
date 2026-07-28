@@ -65,22 +65,31 @@ export default function Home() {
     return (
         <div className="text-cream flex h-svh w-full flex-col items-center justify-between bg-black">
             <div className="font-main relative mb-auto flex w-full flex-col items-center justify-center pt-[5.5rem] text-[1rem] font-extralight uppercase">
-                <div ref={iMake} className="flex gap-[8.5rem]">
+                <div ref={iMake} className="flex gap-[8.5rem] lg:text-[1.5rem]">
                     <span>I</span>
                     <span>Make</span>
                 </div>
-                <h1 ref={dope} className="text-[5rem] leading-tight">
+                <h1
+                    ref={dope}
+                    className="text-[5rem] leading-tight lg:text-[7.5rem]"
+                >
                     Dope
                 </h1>
-                <h1 ref={web} className="z-2 text-[5rem] leading-tight">
+                <h1
+                    ref={web}
+                    className="z-2 text-[5rem] leading-tight lg:text-[7.5rem]"
+                >
                     Web
                 </h1>
-                <h1 ref={sites} className="text-[5rem] leading-tight">
+                <h1
+                    ref={sites}
+                    className="text-[5rem] leading-tight lg:text-[7.5rem]"
+                >
                     Sites
                 </h1>
-                <div className="absolute top-[58%] left-[50%] flex hidden h-screen w-full -translate-x-1/2 -translate-y-1/2 items-center justify-center">
+                <div className="absolute top-[58%] left-[50%] flex h-screen w-full -translate-x-1/2 -translate-y-1/2 items-center justify-center">
                     <Image
-                        className="w-[14.5rem] object-cover"
+                        className="w-[14.5rem] object-cover lg:w-[20rem]"
                         src="/hero.png"
                         loading="eager"
                         alt="Myself as the hero to these local businesses!"
@@ -89,20 +98,22 @@ export default function Home() {
                     />
                 </div>
             </div>
-            <div className="flex flex-col items-center justify-center gap-[1.5rem] py-[2rem]">
-                <p className="font-body w-[70%] text-[1rem] leading-none font-thin">
+            <div className="flex flex-col items-center justify-center gap-[1.5rem] px-[1.5rem] py-[2rem] md:w-full md:flex-row md:justify-between">
+                <p className="font-body w-[70%] max-w-[25ch] text-[1rem] leading-none font-thin lg:text-[1.5rem]">
                     Digital experiences for businesses that show up for their
                     community
                 </p>
-                <Link
-                    href={"#"}
-                    className="bg-red font-main flex w-[90%] items-center justify-center rounded-[4rem] py-[0.8rem] text-center text-[1.68rem] font-thin uppercase"
-                >
-                    work with me!
-                </Link>
-                <p className="font-body w-[70%] text-center text-[1rem] leading-none font-thin">
-                    or keep scrolling ↓
-                </p>
+                <div className="flex w-full flex-col items-center justify-center gap-[1rem] md:items-end">
+                    <Link
+                        href={"#"}
+                        className="bg-red font-main flex min-w-[20rem] items-center justify-center rounded-[4rem] py-[0.8rem] text-center text-[1.5rem] font-thin uppercase"
+                    >
+                        work with me!
+                    </Link>
+                    <p className="font-body w-[70%] text-center text-[1rem] leading-none font-thin md:w-auto">
+                        or keep scrolling ↓
+                    </p>
+                </div>
             </div>
         </div>
     );
