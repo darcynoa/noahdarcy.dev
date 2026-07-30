@@ -64,7 +64,7 @@ export default function Home() {
 
     return (
         <div className="text-cream flex h-svh w-full flex-col items-center justify-between bg-black">
-            <div className="font-main relative mb-auto flex w-full flex-col items-center justify-center pt-[5.5rem] text-[1rem] font-extralight uppercase lg:pt-[9rem]">
+            <div className="font-main relative mb-auto flex w-full flex-col items-center justify-center pt-[5.5rem] text-[1rem] font-extralight uppercase lg:pt-[10rem]">
                 <div ref={iMake} className="flex gap-[8.5rem] lg:text-[1.5rem]">
                     <span>I</span>
                     <span>Make</span>
