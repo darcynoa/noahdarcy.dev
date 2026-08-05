@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 
@@ -11,6 +11,16 @@ export default function Home() {
     const dope = useRef<HTMLDivElement>(null);
     const web = useRef<HTMLDivElement>(null);
     const sites = useRef<HTMLDivElement>(null);
+
+    const [image, setImage] = useState<number>(1);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setImage((prevImage) => (prevImage === 3 ? 1 : prevImage + 1));
+        }, 1000);
+
+        return () => clearInterval(interval);
+    }, []);
 
     useGSAP(() => {
         const tl = gsap.timeline();
@@ -90,7 +100,7 @@ export default function Home() {
                 <div className="absolute top-[58%] left-[50%] flex h-screen w-full -translate-x-1/2 -translate-y-1/2 items-center justify-center">
                     <Image
                         className="w-[14.5rem] object-cover lg:w-[20rem]"
-                        src="/hero.png"
+                        src={`/portfolio-${image}.png`}
                         loading="eager"
                         alt="Myself as the hero to these local businesses!"
                         width={419}
