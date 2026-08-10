@@ -1,6 +1,6 @@
 "use client";
 import Logo from "./Logo";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { SplitText } from "gsap/SplitText";
@@ -8,6 +8,8 @@ import { SplitText } from "gsap/SplitText";
 gsap.registerPlugin(SplitText);
 
 export default function Navigation() {
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+
     const menuRef = useRef<HTMLDivElement>(null);
     const ellipseRef = useRef<HTMLDivElement>(null);
     const menuTextRef = useRef<HTMLDivElement>(null);
@@ -53,34 +55,66 @@ export default function Navigation() {
             );
 
         menuRef.current?.addEventListener("mouseenter", () => {
+            if (isMenuOpen) return;
             anim.play();
         });
 
         menuRef.current?.addEventListener("mouseleave", () => {
+            if (isMenuOpen) return;
             anim.reverse();
         });
-
-        menuRef.current?.addEventListener("mousedown", () => {
-            console.log("Ellipse clicked");
-        });
     });
+
+    // resizeObserver to use when the menu is open and the screen changes size, to make sure the ellipse is always big enough to cover the screen
+
+    useGSAP(
+        () => {
+            const mm = gsap.matchMedia();
+
+            mm.add("(max-width: 768px)", () => {
+                gsap.to(ellipseRef.current, {
+                    scale: isMenuOpen ? 10 : 1,
+                    duration: 0.8,
+                    ease: "power3.inOut",
+                    overwrite: "auto",
+                });
+            });
+
+            mm.add("(min-width: 769px)", () => {
+                gsap.to(ellipseRef.current, {
+                    scale: isMenuOpen ? 21 : 1,
+                    duration: 0.8,
+                    ease: "power3.inOut",
+                    cursor: isMenuOpen ? "default" : "pointer",
+                    overwrite: "auto",
+                });
+            });
+        },
+        { dependencies: [isMenuOpen] },
+    );
 
     return (
         <nav className="fixed top-0 left-0 z-1000 flex w-screen items-center justify-between px-[1.25rem] py-[1rem] lg:px-[1.75rem]">
             <Logo />
-            <div ref={menuRef} className="relative">
-                <div
+            <div
+                ref={menuRef}
+                className="relative"
+                onClick={() => {
+                    setIsMenuOpen((isOpen) => !isOpen);
+                }}
+            >
+                <p
                     ref={menuTextRef}
                     className="font-main font-thin text-black lowercase"
                 >
                     menu
-                </div>
-                <div
+                </p>
+                <p
                     ref={openTextRef}
                     className="font-main font-thin text-black lowercase"
                 >
                     open
-                </div>
+                </p>
                 <div
                     ref={ellipseRef}
                     className="bg-cream absolute top-[-5.5rem] right-[-5rem] z-[-1] aspect-square w-[10rem] origin-center rounded-full"
