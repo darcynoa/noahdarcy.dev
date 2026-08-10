@@ -82,7 +82,7 @@ export default function Navigation() {
 
             mm.add("(min-width: 769px)", () => {
                 gsap.to(ellipseRef.current, {
-                    scale: isMenuOpen ? 21 : 1,
+                    scale: isMenuOpen ? 15 : 1,
                     duration: 0.8,
                     ease: "power3.inOut",
                     cursor: isMenuOpen ? "default" : "pointer",
@@ -119,6 +119,28 @@ export default function Navigation() {
                     ref={ellipseRef}
                     className="bg-cream absolute top-[-5.5rem] right-[-5rem] z-[-1] aspect-square w-[10rem] origin-center rounded-full"
                 ></div>
+            </div>
+            <div
+                className={`pointer-events-none absolute top-0 left-0 z-30 h-screen w-screen`}
+            >
+                <div
+                    className={`relative flex h-full w-full ${isMenuOpen ? "opacity-100" : "opacity-0"}`}
+                >
+                    <ul className="font-main pointer-events-auto absolute top-[10vh] right-0 flex w-full flex-col items-center justify-center text-[5rem] leading-[1.2] font-thin text-black">
+                        <li>
+                            <a href="#home">Home</a>
+                        </li>
+                        <li>
+                            <a href="#about">About</a>
+                        </li>
+                        <li>
+                            <a href="#services">Services</a>
+                        </li>
+                        <li>
+                            <a href="#work">Work</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </nav>
     );
