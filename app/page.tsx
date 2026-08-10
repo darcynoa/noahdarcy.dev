@@ -11,6 +11,8 @@ export default function Home() {
     const dope = useRef<HTMLDivElement>(null);
     const web = useRef<HTMLDivElement>(null);
     const sites = useRef<HTMLDivElement>(null);
+    const imageRef = useRef<HTMLDivElement>(null);
+    const blockRef = useRef<HTMLDivElement>(null);
 
     const [image, setImage] = useState<number>(1);
 
@@ -25,56 +27,92 @@ export default function Home() {
     useGSAP(() => {
         const tl = gsap.timeline();
 
-        if (!iMake.current || !dope.current || !web.current || !sites.current)
+        if (
+            !iMake.current ||
+            !dope.current ||
+            !web.current ||
+            !sites.current ||
+            !imageRef.current ||
+            !blockRef.current
+        )
             return;
+
+        tl.set(blockRef.current, {
+            scaleY: 0,
+            transformOrigin: "center top",
+        });
+
+        tl.set(imageRef.current, {
+            opacity: 0,
+        });
 
         tl.from(iMake.current.childNodes, {
             y: -50,
             opacity: 0,
-            duration: 1.5,
+            duration: 1,
             ease: "power3.out",
             stagger: 0.2,
         })
             .from(
                 dope.current,
                 {
-                    y: 50,
-                    x: -100,
+                    y: -50,
                     opacity: 0,
-                    duration: 2,
-                    ease: "power3.out",
+                    duration: 1.3,
+                    ease: "power3.in",
                 },
-                "-=0.95",
+                "-=1",
             )
             .from(
                 web.current,
                 {
-                    y: 50,
-                    x: 100,
+                    y: -50,
                     opacity: 0,
-                    duration: 2,
-                    ease: "power3.out",
+                    duration: 1.3,
+                    ease: "power3.in",
                 },
-                "-=1.5",
+                "-=0.95",
             )
             .from(
                 sites.current,
                 {
-                    y: 50,
-                    x: -100,
+                    y: -50,
                     opacity: 0,
-                    duration: 2,
-                    ease: "power3.out",
+                    duration: 1.3,
+                    ease: "power3.in",
                 },
-                "-=1.5",
-            );
+                "-=0.9",
+            )
+            .to(
+                blockRef.current,
+                {
+                    scaleY: 1,
+                    duration: 1,
+                    ease: "power3.inOut",
+                },
+                "-=0.5",
+            )
+            .set(imageRef.current, {
+                opacity: 1,
+                onComplete: () => {
+                    console.log("Animation complete!");
+                },
+            })
+            .set(blockRef.current, {
+                transformOrigin: "center bottom",
+            })
+            .to(blockRef.current, {
+                scaleY: 0,
+                duration: 1,
+                ease: "power3.inOut",
+            });
 
         tl.play();
     });
 
     return (
         <div className="text-cream flex h-svh w-full flex-col items-center justify-between bg-black">
-            <div className="font-main relative mb-auto flex w-full flex-col items-center justify-center pt-[5.5rem] text-[1rem] font-extralight uppercase lg:pt-[10rem]">
+            <div className="font-main relative mb-auto flex w-full flex-col items-center justify-center pt-[5.5rem] text-[1rem] font-extralight uppercase lg:pt-[11rem]">
                 <div ref={iMake} className="flex gap-[8.5rem] lg:text-[1.5rem]">
                     <span>I</span>
                     <span>Make</span>
@@ -87,7 +125,7 @@ export default function Home() {
                 </h1>
                 <h1
                     ref={web}
-                    className="z-2 text-[5rem] leading-tight lg:text-[7.5rem]"
+                    className="z-3 text-[5rem] leading-tight lg:text-[7.5rem]"
                 >
                     Web
                 </h1>
@@ -97,9 +135,17 @@ export default function Home() {
                 >
                     Sites
                 </h1>
-                <div className="absolute top-[58%] left-[50%] flex h-screen w-full -translate-x-1/2 -translate-y-1/2 items-center justify-center">
+
+                <div
+                    ref={blockRef}
+                    className="bg-red pointer-events-none absolute top-[58%] left-[50%] z-2 h-[944px] w-[419px] -translate-x-1/2 -translate-y-1/2 rounded-[1rem] will-change-transform"
+                ></div>
+                <div
+                    ref={imageRef}
+                    className="absolute top-[58%] left-[50%] flex h-screen w-full -translate-x-1/2 -translate-y-1/2 items-center justify-center"
+                >
                     <Image
-                        className="w-[14.5rem] object-cover lg:w-[20rem]"
+                        className="clippy w-[14.5rem] object-cover lg:w-[20rem]"
                         src={`/portfolio-${image}.png`}
                         loading="eager"
                         alt="Myself as the hero to these local businesses!"

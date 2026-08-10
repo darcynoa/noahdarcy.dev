@@ -1,42 +1,42 @@
 @font-face {
-  font-family: "PPEiko";
-  src: url(./fonts/PPEiko-Thin.otf) format("opentype");
-  font-weight: 200;
-  font-style: normal;
-  font-display: swap;
+    font-family: "PPEiko";
+    src: url(./fonts/PPEiko-Thin.otf) format("opentype");
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
 }
 @font-face {
-  font-family: "PPEiko";
-  src: url(./fonts/PPEiko-Medium.otf) format("opentype");
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
+    font-family: "PPEiko";
+    src: url(./fonts/PPEiko-Medium.otf) format("opentype");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
 }
 @font-face {
-  font-family: "PPEiko";
-  src: url(./fonts/PPEiko-LightItalic.otf) format("opentype");
-  font-weight: 200;
-  font-style: italic;
-  font-display: swap;
+    font-family: "PPEiko";
+    src: url(./fonts/PPEiko-LightItalic.otf) format("opentype");
+    font-weight: 200;
+    font-style: italic;
+    font-display: swap;
 }
 @font-face {
-  font-family: "PPEiko";
-  src: url(./fonts/PPEiko-Heavy.otf) format("opentype");
-  font-weight: 900;
-  font-style: normal;
-  font-display: swap;
+    font-family: "PPEiko";
+    src: url(./fonts/PPEiko-Heavy.otf) format("opentype");
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
 }
 
 @import "tailwindcss";
 
 @theme inline {
-  --color-black: #1e1e1e;
-  --color-light-gray: #cfcfcf;
-  --color-cream: #f9e8d2;
-  --color-red: #e14d3e;
-  --color-green: #a7b572;
-  --color-blue: #91b2b4;
-  --color-purple: #342d59;
-  --font-main: "PPEiko", serif;
-  --font-body: var(--font-bricolage-grotesque), sans-serif;
+    --color-black: #1e1e1e;
+    --color-light-gray: #cfcfcf;
+    --color-cream: #f9e8d2;
+    --color-red: #e14d3e;
+    --color-green: #a7b572;
+    --color-blue: #91b2b4;
+    --color-purple: #342d59;
+    --font-main: "PPEiko", serif;
+    --font-body: var(--font-bricolage-grotesque), sans-serif;
 }
