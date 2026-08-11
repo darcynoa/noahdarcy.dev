@@ -28,7 +28,7 @@ export default function RootLayout({
             lang="en"
             className={`h-full antialiased ${bricolageGrotesque.variable} ${yujiMai.variable}`}
         >
-            <body className="bg-black">
+            <body className="overflow-x-hidden bg-black">
                 <Navigation />
                 {children}
             </body>
