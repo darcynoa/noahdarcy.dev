@@ -126,7 +126,7 @@ export default function Navigation() {
                 <div
                     className={`relative flex h-full w-full ${isMenuOpen ? "opacity-100" : "opacity-0"}`}
                 >
-                    <ul className="font-main pointer-events-auto absolute top-[10vh] right-0 flex w-full flex-col items-center justify-center text-[5rem] leading-[1.2] font-thin text-black">
+                    <ul className="font-main pointer-events-auto absolute top-[10vh] right-0 flex hidden w-full flex-col items-center justify-center text-[5rem] leading-[1.2] font-thin text-black">
                         <li>
                             <a href="#home">Home</a>
                         </li>
