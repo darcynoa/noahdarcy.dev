@@ -7,7 +7,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function Proof() {
+export default function Work() {
     const track = useRef<HTMLDivElement>(null);
 
     useGSAP(() => {
@@ -41,13 +41,13 @@ export default function Proof() {
             <h1 className="font-main text-cream text-[5rem] font-thin lg:pl-[2rem] lg:text-[7.5rem]">
                 Work
             </h1>
-            <section className="flex h-screen w-screen items-center justify-center text-amber-300">
+            <section className="flex h-screen w-[110%] items-center justify-center pl-[5rem] text-amber-300">
                 Section 1
             </section>
-            <section className="flex h-screen w-screen items-center justify-center text-amber-500">
+            <section className="flex h-screen w-[110%] items-center justify-center text-amber-500">
                 Section 2
             </section>
-            <section className="flex h-screen w-screen items-center justify-center text-amber-600">
+            <section className="flex h-screen w-[110%] items-center justify-center text-amber-600">
                 Section 3
             </section>
         </div>

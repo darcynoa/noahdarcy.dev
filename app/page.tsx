@@ -2,14 +2,14 @@
 
 import { ReactLenis } from "lenis/react";
 import Hero from "@/components/home/Hero";
-import Proof from "@/components/home/Proof";
+import Work from "@/components/home/Work";
 
 export default function Home() {
     return (
         <>
             <ReactLenis root />
             <Hero />
-            <Proof />
+            <Work />
         </>
     );
 }
