@@ -38,7 +38,7 @@ export default function Work() {
     return (
         <div
             ref={track}
-            className="flex h-screen w-full flex-col items-center justify-start overflow-hidden bg-black lg:w-[450vw] lg:flex-row"
+            className="flex h-screen w-full flex-col items-center justify-start bg-black lg:w-[450vw] lg:flex-row lg:overflow-hidden"
         >
             <h1 className="font-main text-cream text-[5rem] font-thin lg:pl-[2rem] lg:text-[7.5rem]">
                 Work
@@ -62,7 +62,7 @@ export default function Work() {
                         </p>
                         <Link
                             href={"mailto:noah@noahdarcy.dev"}
-                            className="bg-red text-cream font-main flex min-w-[20rem] items-center justify-center rounded-[4rem] py-[0.8rem] text-center text-[1.5rem] font-thin uppercase"
+                            className="bg-green text-cream font-main flex min-w-[20rem] items-center justify-center rounded-[4rem] py-[0.8rem] text-center text-[1.5rem] font-thin uppercase"
                         >
                             work with me!
                         </Link>
