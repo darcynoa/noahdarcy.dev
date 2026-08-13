@@ -36,6 +36,7 @@ export default function Hero() {
             return;
 
         tl.set(imageRef.current, {
+            opacity: 0,
             y: 50,
         });
 
@@ -113,7 +114,7 @@ export default function Hero() {
                 </h1>
                 <div
                     ref={imageRef}
-                    className="absolute top-[58%] left-[50%] flex h-full w-full -translate-x-1/2 -translate-y-1/2 items-center justify-center opacity-0"
+                    className="absolute top-[58%] left-[50%] flex h-full w-full -translate-x-1/2 -translate-y-1/2 items-center justify-center"
                 >
                     <Image
                         className="w-[14.5rem] object-cover lg:w-[20rem]"
