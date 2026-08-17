@@ -97,7 +97,7 @@ export default function Hero() {
     });
 
     return (
-        <div className="text-cream flex h-svh w-full flex-col items-center justify-between bg-black">
+        <div className="text-cream flex h-svh w-full flex-col items-center justify-between">
             <div className="font-main relative mb-auto flex w-full flex-col items-center justify-center pt-[5.5rem] text-[1rem] font-extralight uppercase lg:pt-[11rem]">
                 <div ref={iMake} className="flex gap-[8.5rem] lg:text-[1.5rem]">
                     <span>I</span>
@@ -127,7 +127,7 @@ export default function Hero() {
                 >
                     <Image
                         className="w-[14.5rem] object-cover lg:w-[20rem]"
-                        src={`/portfolio-${image}.png`}
+                        src={`/hero/portfolio-${image}.png`}
                         loading="eager"
                         alt="Myself as the hero to these local businesses!"
                         width={419}
