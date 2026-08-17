@@ -19,7 +19,7 @@ const data: {
     },
     {
         id: 2,
-        name: "At The Helm Productions",
+        name: "Plant Based Coneys",
         image: ["/work/athp-1.png", "/work/athp-2.png"],
         description:
             "An astonishing website put together to promote a budding film company with their first short film",
@@ -29,7 +29,7 @@ const data: {
     },
     {
         id: 3,
-        name: "At The Helm Productions",
+        name: "Memory Lanes",
         image: ["/work/athp-1.png", "/work/athp-2.png"],
         description:
             "An astonishing website put together to promote a budding film company with their first short film",

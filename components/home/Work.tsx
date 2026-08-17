@@ -108,7 +108,7 @@ export default function Work() {
                             data-work-header
                             className="font-main text-cream z-2 w-fit text-center text-[3rem] font-thin lg:text-[7.5rem]"
                         >
-                            At The Helm Productions
+                            {item.name}
                         </h1>
                         <div className="-mt-[3.5rem] flex flex-col items-center justify-center gap-[2rem] lg:flex-row">
                             <Image
