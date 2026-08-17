@@ -221,7 +221,7 @@ export default function Work() {
     return (
         <div
             ref={track}
-            className="flex w-full flex-col items-center justify-start bg-black pt-[10rem] pb-[5rem] lg:w-[450vw] lg:flex-row lg:overflow-hidden lg:pt-0 lg:pb-0"
+            className="flex w-full flex-col items-center justify-start pt-[10rem] pb-[5rem] lg:w-[450vw] lg:flex-row lg:overflow-hidden lg:pt-0 lg:pb-0"
         >
             <h1
                 ref={workRef}
