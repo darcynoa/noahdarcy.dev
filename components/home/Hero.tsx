@@ -12,6 +12,7 @@ export default function Hero() {
     const web = useRef<HTMLDivElement>(null);
     const sites = useRef<HTMLDivElement>(null);
     const imageRef = useRef<HTMLDivElement>(null);
+    const ctaRef = useRef<HTMLDivElement>(null);
 
     const [image, setImage] = useState<number>(1);
 
@@ -31,7 +32,8 @@ export default function Hero() {
             !dope.current ||
             !web.current ||
             !sites.current ||
-            !imageRef.current
+            !imageRef.current ||
+            !ctaRef.current
         )
             return;
 
@@ -82,6 +84,13 @@ export default function Hero() {
                 y: 0,
                 duration: 0.85,
                 ease: "power3.inOut",
+            })
+            .from(gsap.utils.toArray(ctaRef.current.children), {
+                stagger: 0.15,
+                y: 50,
+                opacity: 0,
+                duration: 0.85,
+                ease: "power3.inOut",
             });
 
         tl.play();
@@ -126,8 +135,11 @@ export default function Hero() {
                     />
                 </div>
             </div>
-            <div className="flex flex-col items-center justify-center gap-[1.5rem] px-[1.5rem] py-[2rem] md:w-full md:flex-row md:justify-between lg:px-[6vw]">
-                <p className="font-body w-[70%] max-w-[25ch] text-[1rem] leading-none font-thin lg:text-[1.5rem]">
+            <div
+                ref={ctaRef}
+                className="flex flex-col items-center justify-center gap-[1.5rem] px-[1.5rem] py-[2rem] md:w-full md:flex-row md:justify-between lg:px-[6vw]"
+            >
+                <p className="font-body w-[70%] max-w-[25ch] text-center text-[1rem] leading-none font-thin md:text-left lg:text-[1.5rem]">
                     Digital experiences for businesses that have something real
                     to say
                 </p>
