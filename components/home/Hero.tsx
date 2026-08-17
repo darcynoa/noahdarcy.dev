@@ -126,10 +126,10 @@ export default function Hero() {
                     />
                 </div>
             </div>
-            <div className="flex flex-col items-center justify-center gap-[1.5rem] px-[1.5rem] py-[2rem] md:w-full md:flex-row md:justify-between">
+            <div className="flex flex-col items-center justify-center gap-[1.5rem] px-[1.5rem] py-[2rem] md:w-full md:flex-row md:justify-between lg:px-[6vw]">
                 <p className="font-body w-[70%] max-w-[25ch] text-[1rem] leading-none font-thin lg:text-[1.5rem]">
-                    Digital experiences for businesses that show up for their
-                    community
+                    Digital experiences for businesses that have something real
+                    to say
                 </p>
                 <div className="flex w-full flex-col items-center justify-center gap-[1rem] md:items-end">
                     <Link
