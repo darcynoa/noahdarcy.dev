@@ -22,7 +22,7 @@ export default function Work() {
 
         const mm = gsap.matchMedia();
 
-        mm.add("(max-width: 1023px", () => {
+        mm.add("(max-width: 1023px)", () => {
             gsap.set(workRef.current, {
                 transformOrigin: "left center",
             });
@@ -235,7 +235,7 @@ export default function Work() {
                     <section
                         data-work-section
                         key={item.id}
-                        className={`flex h-screen flex-col items-center justify-center gap-[5rem] pt-[17.5rem] lg:w-[110%] lg:pt-0 ${index === 0 ? "lg:ml-[40rem]" : "lg:ml-[25rem]"}`}
+                        className={`flex flex-col items-center justify-center gap-[5rem] pt-[17.5rem] lg:w-[110%] lg:pt-0 ${index === 0 ? "lg:ml-[40rem]" : "lg:ml-[25rem]"}`}
                     >
                         <h1
                             data-work-header

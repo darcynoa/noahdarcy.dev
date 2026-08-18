@@ -19,8 +19,6 @@ export default function Navigation() {
             type: "chars",
         });
 
-        console.log(menuText, "NAV", isMenuOpen);
-
         gsap.from(gsap.utils.toArray(navRef.current?.children ?? []), {
             y: -100,
             duration: 2,
