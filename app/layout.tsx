@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import "lenis/dist/lenis.css";
 import Navigation from "@/components/Navigation";
 import { Bricolage_Grotesque, Yuji_Mai } from "next/font/google";
 
@@ -28,7 +29,7 @@ export default function RootLayout({
             lang="en"
             className={`h-full antialiased ${bricolageGrotesque.variable} ${yujiMai.variable}`}
         >
-            <body className="overflow-x-hidden bg-black">
+            <body className="overflow-x-clip bg-black">
                 <Navigation />
                 {children}
             </body>
