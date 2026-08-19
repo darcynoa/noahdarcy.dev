@@ -94,7 +94,7 @@ export default function Hero() {
             });
 
         tl.play();
-    });
+    }, []);
 
     return (
         <div className="text-cream flex h-svh w-full flex-col items-center justify-between">
@@ -127,7 +127,7 @@ export default function Hero() {
                 >
                     <Image
                         className="w-[14.5rem] object-cover lg:w-[20rem]"
-                        src={`/hero/portfolio-${image}.png`}
+                        src={`/noah/portfolio-${image}.png`}
                         loading="eager"
                         alt="Myself as the hero to these local businesses!"
                         width={419}
