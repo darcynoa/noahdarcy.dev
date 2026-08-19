@@ -252,7 +252,7 @@ export default function Work() {
                                 height={665}
                                 className="w-[90%] rounded-[4rem] object-cover opacity-60 lg:w-[50rem] lg:rounded-[2rem] lg:opacity-100"
                             />
-                            <div className="flex h-full flex-col items-start justify-between gap-[2rem] px-[1.5rem] lg:gap-[25rem] lg:px-0">
+                            <div className="flex h-full flex-col items-center justify-between gap-[2rem] px-[1.5rem] lg:items-start lg:gap-[25rem] lg:px-0">
                                 <p
                                     data-work-description
                                     className="font-body text-cream text-[1rem] leading-[1] font-thin lg:w-[70%]"
