@@ -24,17 +24,17 @@ const data: {
         description:
             "An astonishing website put together to promote a budding film company with their first short film",
         ctaColor: "bg-green",
-        ctaLink: "https://atthehelmproductions.com",
+        ctaLink: "https://plantbasedconeys.com",
         ctaText: "work with me!",
     },
     {
         id: 3,
-        name: "Memory Lanes",
+        name: "Nook's Cranny",
         image: ["/work/athp-1.png", "/work/athp-2.png"],
         description:
             "An astonishing website put together to promote a budding film company with their first short film",
         ctaColor: "bg-green",
-        ctaLink: "https://atthehelmproductions.com",
+        ctaLink: "#",
         ctaText: "work with me!",
     },
 ];
