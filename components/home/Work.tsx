@@ -30,7 +30,7 @@ export default function Work() {
             gsap.from(workRef.current, {
                 x: -300,
                 rotate: -30,
-                duration: 1.5,
+                duration: 1.25,
                 ease: "power4.inOut",
                 scrollTrigger: {
                     trigger: trackEl,
@@ -106,8 +106,8 @@ export default function Work() {
                 ScrollTrigger.create({
                     trigger: section,
                     start: "top center",
-                    toggleActions: "play none none reset",
-                    onEnter: () => workTimeline.play(),
+                    toggleActions: "play none none reverse",
+                    animation: workTimeline,
                 });
             });
         });
@@ -235,7 +235,7 @@ export default function Work() {
                     <section
                         data-work-section
                         key={item.id}
-                        className={`flex flex-col items-center justify-center gap-[5rem] pt-[17.5rem] lg:w-[110%] lg:pt-0 ${index === 0 ? "lg:ml-[40rem]" : "lg:ml-[25rem]"}`}
+                        className={`flex flex-col items-center justify-center gap-[5rem] pt-[20rem] lg:w-[110%] lg:pt-0 ${index === 0 ? "lg:ml-[40rem]" : "lg:ml-[25rem]"}`}
                     >
                         <h1
                             data-work-header
@@ -243,16 +243,16 @@ export default function Work() {
                         >
                             {item.name}
                         </h1>
-                        <div className="-mt-[8rem] flex flex-col items-center justify-center gap-[2rem] lg:mt-0 lg:flex-row">
+                        <div className="-mt-[8rem] flex flex-col items-center justify-center gap-[2rem] lg:mt-0 lg:flex-row lg:gap-[5rem]">
                             <Image
                                 data-work-image
                                 src={item.image[0]}
                                 alt="One of the many pictures for the At The Helm Productions Project"
-                                width={1000}
-                                height={1000}
+                                width={885}
+                                height={665}
                                 className="w-[90%] rounded-[4rem] object-cover opacity-60 lg:w-[50rem] lg:rounded-[2rem] lg:opacity-100"
                             />
-                            <div className="flex h-full flex-col items-start justify-between gap-[2rem] px-[1.5rem] lg:pt-[5rem]">
+                            <div className="flex h-full flex-col items-start justify-between gap-[2rem] px-[1.5rem] lg:gap-[25rem] lg:px-0">
                                 <p
                                     data-work-description
                                     className="font-body text-cream text-[1rem] leading-[1] font-thin lg:w-[70%]"
