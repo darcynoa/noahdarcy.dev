@@ -60,63 +60,62 @@ export default function Gift() {
 
         const mm = gsap.matchMedia();
 
-        // mm.add("(max-width: 1023px)", () => {
-        //     const giftTimeline = gsap.timeline({ paused: true });
-        //     giftTimeline
-        //         .to(questionLines.words, {
-        //             yPercent: 100,
-        //             stagger: 0.05,
-        //             duration: 0.75,
-        //             ease: "power4.inOut",
-        //         })
-        //         .from(
-        //             blueprintPages,
-        //             {
-        //                 y: -50,
-        //                 autoAlpha: 0,
-        //                 duration: 1.3,
-        //                 stagger: 0.25,
-        //                 ease: "power4.inOut",
-        //             },
-        //             "-=0.5",
-        //         )
-        //         .from(
-        //             mobileHeaderLines.lines,
-        //             {
-        //                 yPercent: 100,
-        //                 stagger: 0.1,
-        //                 duration: 0.75,
-        //                 ease: "power4.inOut",
-        //             },
-        //             "-=0.5",
-        //         )
-        //         .from(
-        //             descriptionLines.lines,
-        //             {
-        //                 yPercent: 100,
-        //                 stagger: 0.1,
-        //                 duration: 0.75,
-        //                 ease: "power4.inOut",
-        //             },
-        //             "-=0.5",
-        //         )
-        //         .from(
-        //             formRef.current,
-        //             {
-        //                 y: 50,
-        //                 opacity: 0,
-        //                 duration: 0.75,
-        //                 ease: "power4.inOut",
-        //             },
-        //             "-=0.5",
-        //         );
-        //     ScrollTrigger.create({
-        //         trigger: gift.current,
-        //         start: "top top",
-        //         animation: giftTimeline,
-        //         toggleActions: "play none none reverse",
-        //     });
-        // });
+        mm.add("(max-width: 1023px)", () => {
+            const giftTimeline = gsap.timeline({ paused: true });
+            giftTimeline.to(questionLines.words, {
+                yPercent: 100,
+                stagger: 0.05,
+                duration: 0.75,
+                ease: "power4.inOut",
+            });
+            //         .from(
+            //             blueprintPages,
+            //             {
+            //                 y: -50,
+            //                 autoAlpha: 0,
+            //                 duration: 1.3,
+            //                 stagger: 0.25,
+            //                 ease: "power4.inOut",
+            //             },
+            //             "-=0.5",
+            //         )
+            //         .from(
+            //             mobileHeaderLines.lines,
+            //             {
+            //                 yPercent: 100,
+            //                 stagger: 0.1,
+            //                 duration: 0.75,
+            //                 ease: "power4.inOut",
+            //             },
+            //             "-=0.5",
+            //         )
+            //         .from(
+            //             descriptionLines.lines,
+            //             {
+            //                 yPercent: 100,
+            //                 stagger: 0.1,
+            //                 duration: 0.75,
+            //                 ease: "power4.inOut",
+            //             },
+            //             "-=0.5",
+            //         )
+            //         .from(
+            //             formRef.current,
+            //             {
+            //                 y: 50,
+            //                 opacity: 0,
+            //                 duration: 0.75,
+            //                 ease: "power4.inOut",
+            //             },
+            //             "-=0.5",
+            //         );
+            //     ScrollTrigger.create({
+            //         trigger: gift.current,
+            //         start: "top top",
+            //         animation: giftTimeline,
+            //         toggleActions: "play none none reverse",
+            //     });
+        });
 
         mm.add("(min-width: 64rem)", () => {
             const giftTimeline = gsap.timeline({ paused: true });
