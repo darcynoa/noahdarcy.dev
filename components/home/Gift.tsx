@@ -62,23 +62,24 @@ export default function Gift() {
 
         mm.add("(max-width: 1023px)", () => {
             const giftTimeline = gsap.timeline({ paused: true });
-            giftTimeline.to(questionLines.words, {
-                yPercent: 100,
-                stagger: 0.05,
-                duration: 0.75,
-                ease: "power4.inOut",
-            });
-            //         .from(
-            //             blueprintPages,
-            //             {
-            //                 y: -50,
-            //                 autoAlpha: 0,
-            //                 duration: 1.3,
-            //                 stagger: 0.25,
-            //                 ease: "power4.inOut",
-            //             },
-            //             "-=0.5",
-            //         )
+            giftTimeline
+                .to(questionLines.words, {
+                    yPercent: 100,
+                    stagger: 0.05,
+                    duration: 0.75,
+                    ease: "power4.inOut",
+                })
+                .from(
+                    blueprintPages,
+                    {
+                        y: -50,
+                        autoAlpha: 0,
+                        duration: 1.3,
+                        stagger: 0.25,
+                        ease: "power4.inOut",
+                    },
+                    "-=0.5",
+                );
             //         .from(
             //             mobileHeaderLines.lines,
             //             {
