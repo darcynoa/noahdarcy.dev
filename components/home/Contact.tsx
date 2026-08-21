@@ -37,25 +37,48 @@ export default function Contact() {
 
     useGSAP(
         () => {
+            const mm = gsap.matchMedia();
+
             marqueeTimeline.current = gsap.timeline({
                 repeat: -1,
                 defaults: { ease: "none" },
             });
 
-            gsap.set(marqueeRef.current, {
-                xPercent: 0,
-            });
-
-            marqueeTimeline.current
-                .to(marqueeRef.current, {
-                    xPercent: -59.1,
-                    duration: 20,
-                    ease: "none",
-                })
-                .set(marqueeRef.current, {
+            mm.add("(max-width: 1023px)", () => {
+                if (!marqueeTimeline.current) return;
+                gsap.set(marqueeRef.current, {
                     xPercent: 0,
                 });
+
+                marqueeTimeline.current
+                    .to(marqueeRef.current, {
+                        xPercent: -59.1,
+                        duration: 10,
+                        ease: "none",
+                    })
+                    .set(marqueeRef.current, {
+                        xPercent: 0,
+                    });
+            });
+
+            mm.add("(min-width: 64rem)", () => {
+                if (!marqueeTimeline.current) return;
+                gsap.set(marqueeRef.current, {
+                    xPercent: 0,
+                });
+
+                marqueeTimeline.current
+                    .to(marqueeRef.current, {
+                        xPercent: -59.1,
+                        duration: 20,
+                        ease: "none",
+                    })
+                    .set(marqueeRef.current, {
+                        xPercent: 0,
+                    });
+            });
         },
+
         { scope: marqueeRef },
     );
 
@@ -76,8 +99,8 @@ export default function Contact() {
     };
 
     return (
-        <section className="pointer-events-none relative flex h-screen w-full flex-col items-center justify-center">
-            <h1 className="font-main text-cream text-[5rem] font-thin lg:text-[7.5rem]">
+        <section className="relative flex h-screen w-full flex-col items-center justify-center overflow-hidden">
+            <h1 className="font-main text-cream text-center text-[5rem] leading-[1.3] font-thin lg:text-left lg:text-[7.5rem]">
                 Reach Out!
             </h1>
             <Image
@@ -92,7 +115,7 @@ export default function Contact() {
                 ref={marqueeRef}
                 onPointerEnter={onPointerEnter}
                 onPointerLeave={onPointerLeave}
-                className="text-cream font-body pointer-events-auto absolute top-1/2 left-0 flex -translate-y-1/2 gap-[5rem] text-[1rem] font-thin"
+                className="text-cream font-body pointer-events-auto absolute top-1/3 left-0 flex origin-[left_center] -translate-y-1/2 gap-[5rem] text-[1rem] font-thin lg:top-1/2 lg:rotate-0"
             >
                 {[
                     ...marqueeItems,
