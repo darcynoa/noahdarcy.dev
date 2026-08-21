@@ -79,37 +79,37 @@ export default function Gift() {
                         ease: "power4.inOut",
                     },
                     "-=0.5",
+                )
+                .from(
+                    mobileHeaderLines.lines,
+                    {
+                        yPercent: 100,
+                        stagger: 0.1,
+                        duration: 0.75,
+                        ease: "power4.inOut",
+                    },
+                    "-=0.5",
+                )
+                .from(
+                    descriptionLines.lines,
+                    {
+                        yPercent: 100,
+                        stagger: 0.1,
+                        duration: 0.75,
+                        ease: "power4.inOut",
+                    },
+                    "-=0.5",
+                )
+                .from(
+                    formRef.current,
+                    {
+                        y: 50,
+                        opacity: 0,
+                        duration: 0.75,
+                        ease: "power4.inOut",
+                    },
+                    "-=0.5",
                 );
-            //         .from(
-            //             mobileHeaderLines.lines,
-            //             {
-            //                 yPercent: 100,
-            //                 stagger: 0.1,
-            //                 duration: 0.75,
-            //                 ease: "power4.inOut",
-            //             },
-            //             "-=0.5",
-            //         )
-            //         .from(
-            //             descriptionLines.lines,
-            //             {
-            //                 yPercent: 100,
-            //                 stagger: 0.1,
-            //                 duration: 0.75,
-            //                 ease: "power4.inOut",
-            //             },
-            //             "-=0.5",
-            //         )
-            //         .from(
-            //             formRef.current,
-            //             {
-            //                 y: 50,
-            //                 opacity: 0,
-            //                 duration: 0.75,
-            //                 ease: "power4.inOut",
-            //             },
-            //             "-=0.5",
-            //         );
             ScrollTrigger.create({
                 trigger: gift.current,
                 start: "top top",
