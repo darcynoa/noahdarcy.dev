@@ -24,11 +24,11 @@ export default function Contact() {
     const marqueeItems = [
         { label: "email me", href: "mailto:noah@noahdarcy.dev" },
         { label: "•" },
-        { label: "call me", href: "tel:+1234567890" },
+        { label: "call me", href: "tel:+16314856390" },
         { label: "•" },
         {
             label: "follow me",
-            href: "https://instagram.com/your-username",
+            href: "https://instagram.com/noah_d_arcy",
         },
         { label: "•" },
         { label: "subscribe to me", href: "/subscribe" },
