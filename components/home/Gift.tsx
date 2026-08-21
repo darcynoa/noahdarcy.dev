@@ -109,12 +109,12 @@ export default function Gift() {
             //             },
             //             "-=0.5",
             //         );
-            //     ScrollTrigger.create({
-            //         trigger: gift.current,
-            //         start: "top top",
-            //         animation: giftTimeline,
-            //         toggleActions: "play none none reverse",
-            //     });
+            ScrollTrigger.create({
+                trigger: gift.current,
+                start: "top top",
+                animation: giftTimeline,
+                toggleActions: "play none none reverse",
+            });
         });
 
         mm.add("(min-width: 64rem)", () => {
