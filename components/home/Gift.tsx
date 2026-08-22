@@ -116,7 +116,6 @@ export default function Gift() {
                 start: "top top+=200px",
                 animation: giftTimeline,
                 toggleActions: "play none none reverse",
-                markers: true,
             });
         });
 
