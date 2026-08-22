@@ -1,24 +1,15 @@
 "use client";
 import Logo from "./Logo";
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { SplitText } from "gsap/SplitText";
-
-gsap.registerPlugin(SplitText);
+import Link from "next/link";
 
 export default function Navigation() {
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
-
     const menuRef = useRef<HTMLDivElement>(null);
-    const menuTextRef = useRef<HTMLDivElement>(null);
     const navRef = useRef<HTMLDivElement>(null);
 
     useGSAP(() => {
-        const menuText = SplitText.create(menuTextRef.current, {
-            type: "chars",
-        });
-
         gsap.from(gsap.utils.toArray(navRef.current?.children ?? []), {
             y: -100,
             duration: 2,
@@ -35,19 +26,13 @@ export default function Navigation() {
             className="fixed top-0 left-0 z-1000 flex w-screen items-center justify-between px-[1.25rem] py-[1rem] lg:px-[1.75rem]"
         >
             <Logo />
-            <div
-                ref={menuRef}
-                className="relative"
-                onClick={() => {
-                    setIsMenuOpen((isOpen) => !isOpen);
-                }}
-            >
-                <p
-                    ref={menuTextRef}
+            <div ref={menuRef} className="relative">
+                <Link
+                    href={"mailto:noah@noahdarcy.dev"}
                     className="font-main text-cream font-thin uppercase"
                 >
-                    menu
-                </p>
+                    Email
+                </Link>
             </div>
         </nav>
     );
