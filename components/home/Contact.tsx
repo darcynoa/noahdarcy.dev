@@ -69,7 +69,7 @@ export default function Contact() {
                 ease: "power4.inOut",
                 scrollTrigger: {
                     trigger: containerRef.current,
-                    start: "top 20%",
+                    start: "top top+=200px",
                     end: "+=100px",
                 },
             });
