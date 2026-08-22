@@ -6,6 +6,7 @@ import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SplitText } from "gsap/SplitText";
 import Image from "next/image";
+import Script from "next/script";
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
@@ -200,86 +201,132 @@ export default function Gift() {
     });
 
     return (
-        <section
-            ref={gift}
-            className="relative flex w-full flex-col gap-[2rem] py-[5rem] lg:gap-[5rem]"
-        >
-            <p
-                ref={questionRef}
-                className="font-body text-cream absolute top-1/2 left-1/2 -z-10 -translate-x-1/2 -translate-y-2/3 text-center text-[2rem] lg:top-1/3"
-            >
-                Wanna build your own website?
-            </p>
-            <div
-                ref={blueprintRef}
-                className="mx-auto flex items-center justify-center"
-            >
-                <Image
-                    data-blueprint-page
-                    src={"/gift/page1.png"}
-                    alt="Preview of the cover of the Wabi-Sabi Website Blueprint"
-                    width={1190}
-                    height={1684}
-                    className="z-[1] translate-x-[90%] translate-y-[3rem] scale-50 lg:translate-x-[50%] lg:scale-75"
-                />
-                <Image
-                    data-blueprint-page
-                    src={"/gift/page2.png"}
-                    alt="Preview of the cover of the Wabi-Sabi Website Blueprint"
-                    width={1190}
-                    height={1684}
-                    className="z-0 scale-50 lg:scale-75"
-                />
-                <Image
-                    data-blueprint-page
-                    src={"/gift/page3.png"}
-                    alt="Preview of the cover of the Wabi-Sabi Website Blueprint"
-                    width={1190}
-                    height={1684}
-                    className="-z-[1] -translate-x-[90%] -translate-y-[3rem] scale-50 lg:-translate-x-[50%] lg:scale-75"
-                />
-            </div>
-            <h1
-                ref={mobileHeaderRef}
-                className="font-main text-cream mx-auto -mt-[5rem] w-[90%] text-center text-[3.5rem] leading-[1.3] font-thin lg:hidden lg:w-auto"
-            >
-                Build your dope site!
-            </h1>
-            <div className="text-cream font-main z-[2] -mt-[15rem] hidden flex-col px-[12rem] text-[8.75rem] font-thin lg:flex">
-                <h1 ref={desktopHeader1} className="leading-[1.2]">
-                    Build your
-                </h1>
-                <h1 ref={desktopHeader2} className="text-right leading-[1.2]">
-                    dope website!
-                </h1>
-            </div>
-            <div
-                ref={ctaRef}
-                className="flex flex-col items-center justify-between gap-[2rem] px-0 lg:flex-row lg:px-[6vw]"
+        <>
+            <Script
+                src="https://f.convertkit.com/ckjs/ck.5.js"
+                strategy="afterInteractive"
+            />
+            <section
+                ref={gift}
+                className="relative flex w-full flex-col gap-[2rem] py-[5rem] lg:gap-[5rem]"
             >
                 <p
-                    ref={descriptionRef}
-                    className="font-body text-cream w-[70%] text-center text-[0.935rem] leading-[1.2] font-thin lg:w-[30%] lg:text-left lg:text-[1rem]"
+                    ref={questionRef}
+                    className="font-body text-cream absolute top-1/2 left-1/2 -z-10 -translate-x-1/2 -translate-y-2/3 text-center text-[2rem] lg:top-1/3"
                 >
-                    Your easy-to-follow curated videos on building your own
-                    amazing website. Drop in your email to lock in your
-                    download!
+                    Wanna build your own website?
                 </p>
-                <form
-                    ref={formRef}
-                    className="font-main flex gap-0 text-[0.935rem] font-thin lg:text-[1rem]"
+                <div
+                    ref={blueprintRef}
+                    className="mx-auto flex items-center justify-center"
                 >
-                    <input
-                        type="email"
-                        className="bg-cream w-auto rounded-l-[4rem] py-[0.8rem] pl-[1rem] lg:w-[20rem]"
-                        placeholder="Your Email!"
+                    <Image
+                        data-blueprint-page
+                        src={"/gift/page1.png"}
+                        alt="Preview of the cover of the Wabi-Sabi Website Blueprint"
+                        width={1190}
+                        height={1684}
+                        className="z-[1] translate-x-[90%] translate-y-[3rem] scale-50 lg:translate-x-[50%] lg:scale-75"
                     />
-                    <input
-                        type="submit"
-                        className="bg-red text-cream w-[5rem] rounded-r-[4rem] py-[0.8rem]"
+                    <Image
+                        data-blueprint-page
+                        src={"/gift/page2.png"}
+                        alt="Preview of the cover of the Wabi-Sabi Website Blueprint"
+                        width={1190}
+                        height={1684}
+                        className="z-0 scale-50 lg:scale-75"
                     />
-                </form>
-            </div>
-        </section>
+                    <Image
+                        data-blueprint-page
+                        src={"/gift/page3.png"}
+                        alt="Preview of the cover of the Wabi-Sabi Website Blueprint"
+                        width={1190}
+                        height={1684}
+                        className="-z-[1] -translate-x-[90%] -translate-y-[3rem] scale-50 lg:-translate-x-[50%] lg:scale-75"
+                    />
+                </div>
+                <h1
+                    ref={mobileHeaderRef}
+                    className="font-main text-cream mx-auto -mt-[5rem] w-[90%] text-center text-[3.5rem] leading-[1.3] font-thin lg:hidden lg:w-auto"
+                >
+                    Build your dope site!
+                </h1>
+                <div className="text-cream font-main z-[2] -mt-[15rem] hidden flex-col px-[12rem] text-[8.75rem] font-thin lg:flex">
+                    <h1 ref={desktopHeader1} className="leading-[1.2]">
+                        Build your
+                    </h1>
+                    <h1
+                        ref={desktopHeader2}
+                        className="text-right leading-[1.2]"
+                    >
+                        dope website!
+                    </h1>
+                </div>
+                <div
+                    ref={ctaRef}
+                    className="flex flex-col items-center justify-between gap-[2rem] px-0 lg:flex-row lg:px-[6vw]"
+                >
+                    <p
+                        ref={descriptionRef}
+                        className="font-body text-cream w-[70%] text-center text-[0.935rem] leading-[1.2] font-thin lg:w-[30%] lg:text-left lg:text-[1rem]"
+                    >
+                        Your easy-to-follow curated videos on building your own
+                        amazing website. Drop in your email to lock in your
+                        download!
+                    </p>
+                    <form
+                        ref={formRef}
+                        action="https://app.kit.com/forms/9833217/subscriptions"
+                        method="post"
+                        data-sv-form="9833217"
+                        data-uid="4517b82f67"
+                        data-format="inline"
+                        data-version="5"
+                        data-options='{"settings":{"after_subscribe":{"action":"message","success_message":"Success! Now check your email to confirm your subscription.","redirect_url":""},"analytics":{"google":null,"fathom":null,"facebook":null,"segment":null,"pinterest":null,"sparkloop":null,"googletagmanager":null},"powered_by":{"show":true},"recaptcha":{"enabled":false},"return_visitor":{"action":"show","custom_content":""}},"version":"5"}'
+                        className="seva-form formkit-form font-main [&_.formkit-alert-success]:text-cream flex flex-col items-center text-[0.935rem] font-thin lg:text-[1rem] [&_.formkit-alert]:mt-2 [&_.formkit-alert]:max-w-[25rem] [&_.formkit-alert]:text-center [&_.formkit-alert]:font-sans [&_.formkit-alert]:text-sm [&_.formkit-alert-error]:text-red-200"
+                    >
+                        <ul
+                            className="formkit-alert formkit-alert-error"
+                            data-element="errors"
+                            data-group="alert"
+                            aria-live="polite"
+                        />
+                        <div
+                            data-element="fields"
+                            data-stacked="false"
+                            className="seva-fields formkit-fields flex gap-0"
+                        >
+                            <div className="formkit-field">
+                                <input
+                                    type="email"
+                                    className="formkit-input bg-cream w-auto rounded-l-[4rem] py-[0.8rem] pl-[1rem] outline-none lg:w-[20rem]"
+                                    placeholder="Your Email!"
+                                    name="email_address"
+                                    aria-label="Email address"
+                                    autoComplete="email"
+                                    required
+                                />
+                            </div>
+                            <button
+                                type="submit"
+                                data-element="submit"
+                                className="formkit-submit bg-red text-cream w-[5rem] cursor-pointer rounded-r-[4rem] py-[0.8rem] disabled:cursor-wait disabled:opacity-70"
+                            >
+                                Submit
+                            </button>
+                        </div>
+                        <a
+                            href="https://kit.com/features/forms?utm_campaign=poweredby&utm_content=form&utm_medium=referral&utm_source=dynamic"
+                            data-element="powered-by"
+                            className="formkit-powered-by-convertkit text-cream mt-2 text-xs opacity-60"
+                            target="_blank"
+                            rel="nofollow noopener"
+                        >
+                            Built with Kit
+                        </a>
+                    </form>
+                </div>
+            </section>
+        </>
     );
 }
