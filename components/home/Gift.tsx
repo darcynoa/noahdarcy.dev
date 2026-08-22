@@ -40,8 +40,6 @@ export default function Gift() {
             .toArray<HTMLElement>("[data-blueprint-page]", blueprintRef.current)
             .reverse();
 
-        console.log(blueprintPages);
-
         const questionLines = SplitText.create(questionRef.current, {
             type: "words,lines",
             mask: "words",
@@ -126,7 +124,6 @@ export default function Gift() {
                     yPercent: 100,
                     stagger: 0.05,
                     duration: 0.75,
-                    delay: 0.5,
                     ease: "power4.inOut",
                 })
                 .from(
@@ -186,7 +183,7 @@ export default function Gift() {
 
             ScrollTrigger.create({
                 trigger: gift.current,
-                start: "center center+=10rem",
+                start: "center center+=8rem",
                 animation: giftContent,
                 toggleActions: "play none none reverse",
             });
@@ -207,7 +204,7 @@ export default function Gift() {
             />
             <section
                 ref={gift}
-                className="relative flex w-full flex-col gap-[2rem] py-[5rem] lg:gap-[5rem]"
+                className="relative flex w-full flex-col gap-[2rem] overflow-x-clip py-[5rem] lg:gap-[5rem]"
             >
                 <p
                     ref={questionRef}
@@ -217,7 +214,7 @@ export default function Gift() {
                 </p>
                 <div
                     ref={blueprintRef}
-                    className="mx-auto flex items-center justify-center"
+                    className="mx-auto grid w-[75vw] max-w-[28rem] grid-cols-1 items-center justify-items-center lg:w-[55vw] lg:max-w-[32rem]"
                 >
                     <Image
                         data-blueprint-page
@@ -225,7 +222,8 @@ export default function Gift() {
                         alt="Preview of the cover of the Wabi-Sabi Website Blueprint"
                         width={1190}
                         height={1684}
-                        className="z-[1] translate-x-[90%] translate-y-[3rem] scale-50 lg:translate-x-[50%] lg:scale-75"
+                        sizes="(max-width: 1023px) 75vw, 55vw"
+                        className="z-[1] col-start-1 row-start-1 h-auto w-full -translate-x-[20%] translate-y-[3rem] lg:-translate-x-1/3"
                     />
                     <Image
                         data-blueprint-page
@@ -233,7 +231,8 @@ export default function Gift() {
                         alt="Preview of the cover of the Wabi-Sabi Website Blueprint"
                         width={1190}
                         height={1684}
-                        className="z-0 scale-50 lg:scale-75"
+                        sizes="(max-width: 1023px) 75vw, 55vw"
+                        className="z-0 col-start-1 row-start-1 h-auto w-full"
                     />
                     <Image
                         data-blueprint-page
@@ -241,12 +240,13 @@ export default function Gift() {
                         alt="Preview of the cover of the Wabi-Sabi Website Blueprint"
                         width={1190}
                         height={1684}
-                        className="-z-[1] -translate-x-[90%] -translate-y-[3rem] scale-50 lg:-translate-x-[50%] lg:scale-75"
+                        sizes="(max-width: 1023px) 75vw, 55vw"
+                        className="-z-[1] col-start-1 row-start-1 h-auto w-full translate-x-[20%] -translate-y-[3rem] lg:translate-x-1/3"
                     />
                 </div>
                 <h1
                     ref={mobileHeaderRef}
-                    className="font-main text-cream mx-auto -mt-[5rem] w-[90%] text-center text-[3.5rem] leading-[1.3] font-thin lg:hidden lg:w-auto"
+                    className="font-main text-cream z-10 mx-auto -mt-[1.5rem] w-[90%] text-center text-[3.5rem] leading-[1.3] font-thin lg:hidden lg:w-auto"
                 >
                     Build your dope site!
                 </h1>
