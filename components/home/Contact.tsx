@@ -5,6 +5,10 @@ import Link from "next/link";
 import { useEffect, useState, useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import { SplitText } from "gsap/SplitText";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger, SplitText);
 
 export default function Contact() {
     const [image, setImage] = useState<number>(1);
@@ -20,6 +24,9 @@ export default function Contact() {
     const marqueeRef = useRef<HTMLDivElement>(null);
     const marqueeTimeline = useRef<gsap.core.Timeline>(null);
     const marqueeTimelineTimescale = useRef<GSAPTween>(null);
+    const containerRef = useRef<HTMLDivElement>(null);
+    const headerRef = useRef<HTMLHeadingElement>(null);
+    const imageRef = useRef<HTMLImageElement>(null);
 
     const marqueeItems = [
         { label: "email me", href: "mailto:noah@noahdarcy.dev" },
@@ -37,6 +44,41 @@ export default function Contact() {
 
     useGSAP(
         () => {
+            const headerLines = SplitText.create(headerRef.current, {
+                type: "lines",
+                autoSplit: true,
+            });
+
+            gsap.from(headerLines.lines, {
+                y: 50,
+                opacity: 0,
+                duration: 0.75,
+                stagger: 0.1,
+                ease: "power4.inOut",
+                scrollTrigger: {
+                    trigger: containerRef.current,
+                    start: "top 70%",
+                    end: "+=100px",
+                },
+            });
+
+            gsap.from(imageRef.current, {
+                y: 50,
+                opacity: 0,
+                duration: 0.75,
+                ease: "power4.inOut",
+                scrollTrigger: {
+                    trigger: containerRef.current,
+                    start: "top 20%",
+                    end: "+=100px",
+                },
+            });
+        },
+        { scope: containerRef },
+    );
+
+    useGSAP(
+        () => {
             const mm = gsap.matchMedia();
 
             marqueeTimeline.current = gsap.timeline({
@@ -44,39 +86,24 @@ export default function Contact() {
                 defaults: { ease: "none" },
             });
 
-            mm.add("(max-width: 1023px)", () => {
-                if (!marqueeTimeline.current) return;
-                gsap.set(marqueeRef.current, {
+            if (!marqueeTimeline.current) return;
+            gsap.set(marqueeRef.current, {
+                xPercent: 0,
+            });
+
+            marqueeTimeline.current
+                .to(marqueeRef.current, {
+                    xPercent: -59.1,
+                    duration: 20,
+                    ease: "none",
+                })
+                .set(marqueeRef.current, {
                     xPercent: 0,
                 });
 
-                marqueeTimeline.current
-                    .to(marqueeRef.current, {
-                        xPercent: -59.1,
-                        duration: 10,
-                        ease: "none",
-                    })
-                    .set(marqueeRef.current, {
-                        xPercent: 0,
-                    });
-            });
+            mm.add("(max-width: 1023px)", () => {});
 
-            mm.add("(min-width: 64rem)", () => {
-                if (!marqueeTimeline.current) return;
-                gsap.set(marqueeRef.current, {
-                    xPercent: 0,
-                });
-
-                marqueeTimeline.current
-                    .to(marqueeRef.current, {
-                        xPercent: -59.1,
-                        duration: 20,
-                        ease: "none",
-                    })
-                    .set(marqueeRef.current, {
-                        xPercent: 0,
-                    });
-            });
+            mm.add("(min-width: 64rem)", () => {});
         },
 
         { scope: marqueeRef },
@@ -99,11 +126,18 @@ export default function Contact() {
     };
 
     return (
-        <section className="relative flex h-screen w-full flex-col items-center justify-center overflow-hidden">
-            <h1 className="font-main text-cream text-center text-[5rem] leading-[1.3] font-thin lg:text-left lg:text-[7.5rem]">
+        <section
+            ref={containerRef}
+            className="relative flex h-screen w-full flex-col items-center justify-center overflow-hidden"
+        >
+            <h1
+                ref={headerRef}
+                className="font-main text-cream text-center text-[5rem] leading-[1.3] font-thin lg:text-left lg:text-[7.5rem]"
+            >
                 Reach Out!
             </h1>
             <Image
+                ref={imageRef}
                 className="z-[2] w-[14.5rem] object-cover lg:w-[20rem]"
                 src={`/noah/portfolio-${image}.png`}
                 loading="eager"
