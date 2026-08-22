@@ -35,10 +35,13 @@ export default function Contact() {
         { label: "•" },
         {
             label: "follow me",
-            href: "https://instagram.com/noah_d_arcy",
+            href: "https://www.instagram.com/noahdarcy.dev",
         },
         { label: "•" },
-        { label: "subscribe to me", href: "/subscribe" },
+        {
+            label: "subscribe to me",
+            href: "https://www.youtube.com/@noahdarcydev",
+        },
         { label: "•" },
     ];
 
@@ -109,16 +112,20 @@ export default function Contact() {
         { scope: marqueeRef },
     );
 
-    const onPointerEnter = () => {
+    const slowMarquee = () => {
         if (!marqueeTimeline.current) return;
+
+        marqueeTimelineTimescale.current?.kill();
         marqueeTimelineTimescale.current = gsap.to(marqueeTimeline.current, {
             timeScale: 0.25,
             duration: 0.75,
         });
     };
 
-    const onPointerLeave = () => {
+    const resumeMarquee = () => {
         if (!marqueeTimeline.current) return;
+
+        marqueeTimelineTimescale.current?.kill();
         marqueeTimelineTimescale.current = gsap.to(marqueeTimeline.current, {
             timeScale: 1,
             duration: 0.75,
@@ -147,8 +154,17 @@ export default function Contact() {
             />
             <div
                 ref={marqueeRef}
-                onPointerEnter={onPointerEnter}
-                onPointerLeave={onPointerLeave}
+                onPointerEnter={(event) => {
+                    if (event.pointerType === "mouse") slowMarquee();
+                }}
+                onPointerLeave={(event) => {
+                    if (event.pointerType === "mouse") resumeMarquee();
+                }}
+                onPointerDown={(event) => {
+                    if (event.pointerType !== "mouse") slowMarquee();
+                }}
+                onPointerUp={resumeMarquee}
+                onPointerCancel={resumeMarquee}
                 className="text-cream font-body pointer-events-auto absolute top-1/3 left-0 flex origin-[left_center] -translate-y-1/2 gap-[5rem] text-[1rem] font-thin lg:top-1/2 lg:rotate-0"
             >
                 {[
@@ -159,7 +175,13 @@ export default function Contact() {
                 ].map((item, index) => (
                     <div className="min-w-fit" key={`${item.label}-${index}`}>
                         {item.href ? (
-                            <Link className="w-fit" href={item.href}>
+                            <Link
+                                target={
+                                    item.href[0] === "h" ? "_blank" : "_self"
+                                }
+                                className="w-fit"
+                                href={item.href}
+                            >
                                 {item.label}
                             </Link>
                         ) : (
