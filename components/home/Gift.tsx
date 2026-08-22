@@ -112,9 +112,10 @@ export default function Gift() {
                 );
             ScrollTrigger.create({
                 trigger: gift.current,
-                start: "top top",
+                start: "top top+=200px",
                 animation: giftTimeline,
                 toggleActions: "play none none reverse",
+                markers: true,
             });
         });
 
