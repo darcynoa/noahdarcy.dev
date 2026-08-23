@@ -20,7 +20,7 @@ const data: {
     {
         id: 2,
         name: "Plant Based Coneys",
-        image: ["/work/pbc-1.png", "/work/athp-2.png"],
+        image: ["/work/pbc-1.png"],
         description:
             "This was one of my most fun builds, for something that I was so passionate about. I’m glad I was able to work with them 💚",
         ctaColor: "bg-red",
