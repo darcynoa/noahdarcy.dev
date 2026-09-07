@@ -29,7 +29,7 @@ export default function VCardContact() {
         <Link
             href="#"
             onClick={downloadVCard}
-            className="font-main text-cream font-thin uppercase"
+            className="font-main text-cream font-thin uppercase lg:hidden"
         >
             Contact
         </Link>

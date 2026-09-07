@@ -28,16 +28,13 @@ export default function Navigation() {
         >
             <Logo />
             <div ref={menuRef} className="relative">
-                {window.innerWidth < 500 ? (
-                    <VCardContact />
-                ) : (
-                    <Link
-                        href={"mailto:noah@noahdarcy.dev"}
-                        className="font-main text-cream font-thin uppercase"
-                    >
-                        Email
-                    </Link>
-                )}
+                <VCardContact />
+                <Link
+                    href={"mailto:noah@noahdarcy.dev"}
+                    className="font-main text-cream hidden font-thin uppercase lg:block"
+                >
+                    Email
+                </Link>
             </div>
         </nav>
     );
