@@ -4,6 +4,7 @@ import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import Link from "next/link";
+import VCardContact from "./VCardContact";
 
 export default function Navigation() {
     const menuRef = useRef<HTMLDivElement>(null);
@@ -27,12 +28,16 @@ export default function Navigation() {
         >
             <Logo />
             <div ref={menuRef} className="relative">
-                <Link
-                    href={"mailto:noah@noahdarcy.dev"}
-                    className="font-main text-cream font-thin uppercase"
-                >
-                    Email
-                </Link>
+                {window.innerWidth < 500 ? (
+                    <VCardContact />
+                ) : (
+                    <Link
+                        href={"mailto:noah@noahdarcy.dev"}
+                        className="font-main text-cream font-thin uppercase"
+                    >
+                        Email
+                    </Link>
+                )}
             </div>
         </nav>
     );
