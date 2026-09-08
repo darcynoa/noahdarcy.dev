@@ -8,7 +8,7 @@ export default function VCardContact() {
             "BEGIN:VCARD",
             "VERSION:3.0",
             `FN:Noah D'Arcy`,
-            `TITLE:Business Owner`,
+            `TITLE:Independent Web Developer`,
             `EMAIL:noah@noahdarcy.dev`,
             `TEL:+16314856390`,
             "END:VCARD",
