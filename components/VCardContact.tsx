@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { VCardContactPhoto } from "@/components/VCardContactPhoto";
 
 export default function VCardContact() {
     const downloadVCard = () => {
@@ -11,6 +12,7 @@ export default function VCardContact() {
             `TITLE:Independent Web Developer`,
             `EMAIL:noah@noahdarcy.dev`,
             `TEL:+16314856390`,
+            `PHOTO;TYPE=PNG;ENCODING=b:${VCardContactPhoto}`,
             "END:VCARD",
         ].join("\n");
 
